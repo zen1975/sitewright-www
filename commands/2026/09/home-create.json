@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "commandId": "sitewright-home-003",
+  "commandId": "sitewright-home-004",
   "command": "create_page",
   "issuedAt": "2026-09-12T05:00:00Z",
   "context": {
@@ -210,9 +210,9 @@
         "sectionType": "cta",
         "variant": "primary",
         "props": {
-          "heading": "Built from evidence, not from a plan.",
+          "title": "Built from evidence, not from a plan.",
           "body": "New capability follows repeated real use. A request that appears once is recorded, not built.",
-          "cta": {
+          "primaryCta": {
             "label": "Updates",
             "href": "/news/"
           }
