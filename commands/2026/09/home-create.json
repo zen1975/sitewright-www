@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "commandId": "sitewright-home-001",
+  "commandId": "sitewright-home-002",
   "command": "create_page",
   "issuedAt": "2026-09-12T05:00:00Z",
   "context": {
@@ -12,7 +12,7 @@
     "slug": "home",
     "title": "Sitewright",
     "pageType": "landing",
-    "templateProfile": "news-default",
+    "templateProfile": "landing-default",
     "status": "published",
     "seoTitle": "Sitewright",
     "seoDescription": "Open infrastructure for websites your clients can update from a chat assistant. The assistant interprets intent; the infrastructure enforces the boundary.",
