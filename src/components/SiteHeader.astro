@@ -1,16 +1,17 @@
 ---
+import siteProfile from '../../config/site-profile.json';
+const repo = siteProfile.officialSite.repositoryUrl;
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/services/', label: 'Services' },
-  { href: '/news/', label: 'News' },
-  { href: '/column/', label: 'Insights' },
-  { href: '/contact/', label: 'Contact' }
+  { href: '/#how', label: 'How it works' },
+  { href: '/#proof', label: 'Proof' },
+  { href: '/#roadmap', label: 'Roadmap' },
+  { href: '/news/', label: 'Updates' },
+  { href: repo, label: 'GitHub' }
 ];
 ---
 <header class="site-header">
   <div class="shell site-header__inner">
-    <a class="site-brand" href="/">Example Company</a>
+    <a class="site-brand" href="/">ChatGPT Operated Site</a>
     <nav aria-label="Main navigation">
       {links.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>

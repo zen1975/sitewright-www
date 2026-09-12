@@ -62,3 +62,21 @@ img { display: block; max-width: 100%; height: auto; }
   .site-footer__inner, .callout { flex-direction: column; align-items: flex-start; }
   .hero { padding-top: 56px; }
 }
+
+/* Official site additions. Layout only -- no runtime or schema behaviour. */
+.lp-lede { max-width: 46ch; font-size: 1.15rem; color: var(--muted); }
+.lp-boundary { margin: 26px 0 0; padding-left: 16px; border-left: 3px solid var(--accent); font-weight: 600; color: #171717; }
+.lp-flow { margin: 0; padding: 22px 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); overflow-x: auto; font-size: .92rem; line-height: 1.8; }
+.lp-flow code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.lp-two { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px; }
+.lp-list { margin: 0; padding-left: 20px; color: var(--muted); }
+.lp-list li { margin-bottom: 10px; }
+.lp-list strong { color: #171717; }
+.lp-stat { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; margin-top: 8px; }
+.lp-stat div { border-top: 2px solid #171717; padding-top: 14px; }
+.lp-stat b { display: block; font-size: 1.9rem; letter-spacing: -.03em; }
+.lp-stat span { color: var(--muted); font-size: .9rem; }
+.lp-note { color: var(--muted); font-size: .92rem; }
+@media (max-width: 860px) {
+  .lp-two, .lp-stat { grid-template-columns: 1fr; }
+}

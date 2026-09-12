@@ -1,11 +1,21 @@
+---
+import siteProfile from '../../config/site-profile.json';
+const repo = siteProfile.officialSite.repositoryUrl;
+---
 <footer class="site-footer">
   <div class="shell site-footer__inner">
     <div>
-      <strong>Example Company</strong>
-      <p>123 Example Street, Example City<br />hello@example.com · +1 555 0100</p>
+      <strong>ChatGPT Operated Site</strong>
+      <p>Open infrastructure for AI-operated websites.<br />
+      Astro · Cloudflare Workers · D1 · R2 · MIT</p>
     </div>
     <div>
-      <p><small>© 2026 Example Company. This is mock content included with the open-source starter.</small></p>
+      <p>
+        <a href={repo}>GitHub</a> ·
+        <a href={`${repo}/blob/main/docs/QUICK_START.md`}>Quick Start</a> ·
+        <a href={`${repo}/issues`}>Issues</a>
+      </p>
+      <p><small>This site is operated by the software it documents.</small></p>
     </div>
   </div>
 </footer>
