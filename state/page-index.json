@@ -1,6 +1,6 @@
 {
   "note": "Current page ids and versions. Read pageId and expectedVersion for update_page_section from here; section ids and versions are under `sections`.",
-  "generatedAt": "2026-09-12T03:38:57.271Z",
+  "generatedAt": "2026-09-12T03:39:52.749Z",
   "items": [
     {
       "id": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
@@ -8,14 +8,14 @@
       "title": "Sitewright",
       "pageType": "landing",
       "status": "published",
-      "version": 1,
+      "version": 2,
       "url": "/home/",
       "sections": [
         {
           "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:1",
           "sectionType": "hero",
           "position": 0,
-          "version": 1
+          "version": 2
         },
         {
           "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:2",
