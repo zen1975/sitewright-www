@@ -7,7 +7,10 @@
   // Custom domain for the official site. Workers provisions the DNS record and
   // the certificate itself, because the zone is already in the same account.
   "routes": [
-    { "pattern": "sitewright.data-range.com", "custom_domain": true }
+    { "pattern": "sitewright.data-range.com", "custom_domain": true },
+    // Kept only so the pre-rename hostname can answer with a 301. See
+    // src/middleware.ts. Remove once nothing points at the old name.
+    { "pattern": "chatgpt-operated-site.data-range.com", "custom_domain": true }
   ],
 
   "d1_databases": [
