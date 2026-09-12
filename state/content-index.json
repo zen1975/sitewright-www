@@ -1,0 +1,16 @@
+{
+  "note": "Current content ids, versions and body locations. Read contentId and expectedVersion for update_content from here, and the body from the file that `body` points to. Do not read them from the published page, and do not copy them from commands/**.",
+  "generatedAt": "2026-09-12T01:52:21.816Z",
+  "items": [
+    {
+      "id": "74a84412-478a-4c4c-ace4-2aa35d4642cc",
+      "slug": "operated-by-itself",
+      "title": "This site is now operated by the software it documents",
+      "contentType": "news",
+      "status": "published",
+      "version": 1,
+      "url": "/news/operated-by-itself/",
+      "body": "state/bodies/news-operated-by-itself.json"
+    }
+  ]
+}

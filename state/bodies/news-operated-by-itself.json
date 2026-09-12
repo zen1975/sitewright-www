@@ -1,0 +1,25 @@
+{
+  "note": "Source of truth for the body passed to update_content. Use this, not the published page.",
+  "id": "74a84412-478a-4c4c-ace4-2aa35d4642cc",
+  "slug": "operated-by-itself",
+  "contentType": "news",
+  "version": 1,
+  "title": "This site is now operated by the software it documents",
+  "excerpt": "The first post on the official site went through the same command path the page describes.",
+  "termIds": [],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "content": "This page was not edited in an admin panel. A command file was committed to the repository, validated, dry-run, and dispatched to the Worker with a signed request. What you are reading is the result."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Why that matters"
+    },
+    {
+      "type": "paragraph",
+      "content": "A project that claims websites can be operated this way should be operated this way. Every update to this site leaves the same audit trail any installation leaves: an immutable command file, a signed dispatch, and a recorded version."
+    }
+  ]
+}
