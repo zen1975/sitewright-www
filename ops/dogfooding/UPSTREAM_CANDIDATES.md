@@ -159,6 +159,23 @@ The starter does not ship anyone's analytics, so this stays here.
 
 ---
 
+## Observed once, recorded rather than built (spec §18)
+
+Deleting a tracked file and running `npm run verify` before staging the deletion
+crashes three release-hygiene checks with `ENOENT`, because `distributionFiles()`
+takes `git ls-files` as truth and the file is gone from disk. The message names
+the missing file but reads like three unrelated failures — "no tracked file
+contains credential material" failing because a file was deleted is not a useful
+thing to be told.
+
+Cost one diagnosis cycle here on 2026-09-12, while removing `src/middleware.ts`.
+
+**Not sent upstream.** One occurrence. If it happens to someone else, it becomes
+a candidate; until then it is a papercut in the test harness, not a defect in
+anything that ships.
+
+---
+
 ## Known divergences that are *not* upstream candidates
 
 These are site-specific and correctly live only here (`docs/FORK_AND_UPSTREAM.md` §13.1).

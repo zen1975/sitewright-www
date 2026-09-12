@@ -10,6 +10,11 @@
     { "pattern": "sitewright.data-range.com", "custom_domain": true },
     // Kept only so the pre-rename hostname can answer with a 301. See
     // src/middleware.ts. Remove once nothing points at the old name.
+    // The old product name. The zone's Single Redirect sends it to
+    // sitewright.data-range.com before a request ever reaches this Worker, so
+    // nothing here serves it. The binding stays because it is what keeps the
+    // hostname's proxied DNS record alive -- remove it and the redirect has no
+    // hostname to fire on.
     { "pattern": "chatgpt-operated-site.data-range.com", "custom_domain": true }
   ],
 
