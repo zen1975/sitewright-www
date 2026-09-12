@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "commandId": "cos-site-launch-001",
+  "command": "create_news",
+  "issuedAt": "2026-09-12T02:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "title": "This site is now operated by the software it documents",
+    "slug": "operated-by-itself",
+    "excerpt": "The first post on the official site went through the same command path the page describes.",
+    "contentType": "news",
+    "templateProfile": "news-default",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "This page was not edited in an admin panel. A command file was committed to the repository, validated, dry-run, and dispatched to the Worker with a signed request. What you are reading is the result."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "Why that matters"
+      },
+      {
+        "type": "paragraph",
+        "content": "A project that claims websites can be operated this way should be operated this way. Every update to this site leaves the same audit trail any installation leaves: an immutable command file, a signed dispatch, and a recorded version."
+      }
+    ]
+  }
+}
