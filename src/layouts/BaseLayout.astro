@@ -36,5 +36,18 @@ const jsonLdText = jsonLd ? JSON.stringify(jsonLd).replaceAll('<', '\\u003c') : 
   <SiteHeader />
   <slot />
   <SiteFooter />
+  {/*
+    Cloudflare Web Analytics. Cookieless, no fingerprinting, no cross-site
+    tracking, so there is nothing to ask consent for.
+
+    Installed by hand rather than by the zone's automatic injection: the
+    automatic path is configured on this account and injects nothing into any
+    of its hostnames, so it cannot be relied on. The token identifies the
+    measurement site, not a visitor, and is public by design -- it ships in the
+    page source of every site that uses this product.
+
+    This is fork-local. The starter does not ship anyone's analytics.
+  */}
+  <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "2577823a345741c0951a99c87e93ecf0"}'></script>
 </body>
 </html>

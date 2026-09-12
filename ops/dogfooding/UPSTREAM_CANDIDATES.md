@@ -120,6 +120,45 @@ made the next defect reachable. This is the third time on this page.
 
 ---
 
+## UC-006 — content routes hardcoded the reference site's company name (sent, merged)
+
+**Found** 2026-09-12, while installing analytics: the browser tab read
+`News | Example Company` on this fork's own article pages.
+
+**Cause:** `news/` and `column/` put `| Example Company` in every `<title>`. The
+`about`/`contact`/`services` pages carry the same name, but those announce
+themselves as mock content a fork replaces. These do not: they are where the
+operator publishes, so a fork keeps them — and ships the reference site's
+identity in a real site's page titles. The catch-all route had the same bug in a
+different form, using `site.id` where a name belongs, which would render a slug.
+
+**Sent upstream:** zen1975/sitewright#25. `site-profile.json` gains `site.name`
+and the routes read it, guarded by a release-hygiene check.
+
+**Applied here:** `site.name` is `Sitewright`. Titles now read
+`News | Sitewright`.
+
+---
+
+## Analytics — not an upstream candidate
+
+Cloudflare Web Analytics is installed in `src/layouts/BaseLayout.astro` as a
+manual beacon. Three things worth recording:
+
+- The zone's **automatic injection is configured and injects nothing** — not on
+  this hostname and not on any other hostname in the account. It cannot be
+  relied on; the snippet is installed by hand.
+- Cloudflare allows **one Web Analytics site per zone**. Creating a second one
+  for this hostname returned the zone's existing site. A host-mode site created
+  without a zone comes back with no ruleset and ingests nothing.
+- `auto_install` on the zone site is now `false`, which is the documented
+  configuration for manual installation. Nothing regressed: no hostname on the
+  zone was receiving an injected beacon before.
+
+The starter does not ship anyone's analytics, so this stays here.
+
+---
+
 ## Known divergences that are *not* upstream candidates
 
 These are site-specific and correctly live only here (`docs/FORK_AND_UPSTREAM.md` §13.1).
