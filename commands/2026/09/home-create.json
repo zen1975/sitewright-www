@@ -1,17 +1,224 @@
 {
   "schemaVersion": 1,
-  "commandId": "cos-site-home-create",
+  "commandId": "sitewright-home-001",
   "command": "create_page",
-  "issuedAt": "2026-09-12T03:00:00Z",
+  "issuedAt": "2026-09-12T05:00:00Z",
   "context": {
     "ruleVersion": "0.1.0",
     "targetSite": "example-site"
   },
   "payload": {
+    "expectedVersion": 0,
     "slug": "home",
-    "title": "ChatGPT Operated Site",
+    "title": "Sitewright",
     "pageType": "landing",
-    "seoTitle": "ChatGPT Operated Site",
-    "seoDescription": "Open infrastructure for websites your clients can update from ChatGPT. The AI interprets intent; the infrastructure enforces the boundary."
+    "templateProfile": "news-default",
+    "status": "published",
+    "seoTitle": "Sitewright",
+    "seoDescription": "Open infrastructure for websites your clients can update from a chat assistant. The assistant interprets intent; the infrastructure enforces the boundary.",
+    "sections": [
+      {
+        "sectionType": "hero",
+        "variant": "standard",
+        "props": {
+          "eyebrow": "Open source \u00b7 MIT",
+          "title": "Websites your clients update from ChatGPT.",
+          "lead": "No admin dashboard. A request becomes a command file in Git, validated and signed before it reaches the site. The assistant interprets intent; the infrastructure enforces the boundary, and the AI is not the authority.",
+          "primaryCta": {
+            "label": "Quick Start",
+            "href": "/news/"
+          }
+        },
+        "position": 0
+      },
+      {
+        "sectionType": "richText",
+        "variant": "standard",
+        "props": {
+          "heading": "The admin panel is the maintenance.",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Traditional CMS products are not incapable. The weight is in keeping administrative software alive so that someone can change a sentence on a page."
+            },
+            {
+              "type": "unordered_list",
+              "items": [
+                "Plugin updates and version drift",
+                "Roles and permissions for people who post twice a month",
+                "Incidents in software nobody wanted to run",
+                "All of it to publish a paragraph."
+              ]
+            }
+          ]
+        },
+        "position": 1
+      },
+      {
+        "sectionType": "richText",
+        "variant": "standard",
+        "props": {
+          "heading": "One canonical path for client changes.",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "A client sentence becomes an immutable command file. It is committed, validated, rejected if its id has been used before, dry-run, then dispatched to the Worker with an HMAC-signed request."
+            },
+            {
+              "type": "paragraph",
+              "content": "The site's operating history is the repository's history. Other API ingress exists for implementers and for emergencies, and each is documented."
+            }
+          ]
+        },
+        "position": 2
+      },
+      {
+        "sectionType": "cardGrid",
+        "variant": "standard",
+        "props": {
+          "heading": "Ordinary requests, nothing else.",
+          "items": [
+            {
+              "title": "\u201cChange the homepage headline.\u201d"
+            },
+            {
+              "title": "\u201cReplace the hero image with this photo.\u201d"
+            },
+            {
+              "title": "\u201cChange our Sunday opening hours to 6 PM.\u201d"
+            },
+            {
+              "title": "\u201cAdd this question to the FAQ.\u201d"
+            },
+            {
+              "title": "\u201cPublish this as a news post.\u201d"
+            },
+            {
+              "title": "\u201cUpdate the SEO description for the About page.\u201d"
+            }
+          ]
+        },
+        "position": 3
+      },
+      {
+        "sectionType": "richText",
+        "variant": "standard",
+        "props": {
+          "heading": "Instruct for quality. Enforce for consequences.",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Over four days of real operation, instructed rules were broken four times. Boundaries enforced by the application were never broken."
+            },
+            {
+              "type": "unordered_list",
+              "items": [
+                "A command that fails validation is not applied.",
+                "A repeated command id applies nothing.",
+                "A version conflict stops the write.",
+                "An unauthorized scope is refused before any mutation."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": "These are not prompts. They are the application refusing."
+            }
+          ]
+        },
+        "position": 4
+      },
+      {
+        "sectionType": "stats",
+        "variant": "standard",
+        "props": {
+          "heading": "Run before published.",
+          "items": [
+            {
+              "label": "days of real operation before release",
+              "value": "4"
+            },
+            {
+              "label": "defects and gaps found and recorded",
+              "value": "35"
+            },
+            {
+              "label": "contract checks on a clean clone",
+              "value": "68"
+            },
+            {
+              "label": "minutes from clone to a live post",
+              "value": "30"
+            }
+          ]
+        },
+        "position": 5
+      },
+      {
+        "sectionType": "richText",
+        "variant": "standard",
+        "props": {
+          "heading": "Your code. Your data. Your infrastructure.",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "content": "Nothing runs on our account. You provision your own GitHub repository and your own Cloudflare account, and you keep them."
+            },
+            {
+              "type": "unordered_list",
+              "items": [
+                "No hosted service in the path",
+                "No vendor runtime dependency",
+                "MIT licensed, commercially usable",
+                "Fork it and replace the reference design"
+              ]
+            }
+          ]
+        },
+        "position": 6
+      },
+      {
+        "sectionType": "faq",
+        "variant": "standard",
+        "props": {
+          "heading": "Which assistants can operate a site",
+          "items": [
+            {
+              "question": "What does an assistant need to be able to do?",
+              "answer": "Commit a file to a GitHub repository. That is a real requirement, not a formality \u2014 not every assistant can do it today."
+            },
+            {
+              "question": "ChatGPT",
+              "answer": "Verified. A real company's site was operated this way for four days, on a desktop and on a phone, for text and for images."
+            },
+            {
+              "question": "Grok",
+              "answer": "Being checked."
+            },
+            {
+              "question": "Claude",
+              "answer": "Its chat interface cannot connect to GitHub today. Claude Code can, but that is a developer tool rather than something a client uses."
+            },
+            {
+              "question": "Is this an official OpenAI project?",
+              "answer": "No. Sitewright is an independent open-source project, not affiliated with, endorsed by, or certified by OpenAI, xAI, Anthropic, or Google."
+            }
+          ]
+        },
+        "position": 7
+      },
+      {
+        "sectionType": "cta",
+        "variant": "standard",
+        "props": {
+          "heading": "Built from evidence, not from a plan.",
+          "body": "New capability follows repeated real use. A request that appears once is recorded, not built.",
+          "cta": {
+            "label": "Updates",
+            "href": "/news/"
+          }
+        },
+        "position": 8
+      }
+    ]
   }
 }
