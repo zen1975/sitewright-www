@@ -48,6 +48,44 @@ in this fork.
 
 ---
 
+## UC-002 — pages built from page sections had nowhere to render
+
+**Observed** 2026-09-12, while trying to make the landing page editable through the
+operator path.
+
+The page-composition commands wrote to `pages` and `page_sections`, and
+`loadPageCompositionBySlug()` read them back, but nothing rendered the result.
+`create_page` succeeded and every URL an operator would report was a 404.
+
+**Status**: fixed upstream in #16 and consumed here. Same shape as Section 12.0 —
+a write path shipped without a matching read path.
+
+---
+
+## Known verify failures in this fork
+
+`npm run verify` is **66/68** here. Both failures are structural, not defects, and both
+are recorded rather than silenced. Do not weaken these tests in the fork.
+
+### `no tracked file carries private-upstream or operator identifiers`
+
+UC-001 above. The official site has to link to the canonical repository.
+
+### `production identifiers are not committed as configuration`
+
+`wrangler.jsonc` carries the real D1 database id, KV namespace id and R2 bucket name
+for the official site. Canonical requires placeholders so that a clean clone cannot
+accidentally point at someone else's infrastructure.
+
+**This fork is an installation, not a distribution.** Its `wrangler.jsonc` is the
+deployment configuration of one running site, which is exactly one of the four files
+a fork is expected to override. The test is right about the canonical repository and
+does not apply to a deployed fork.
+
+This is *not* an upstream candidate: canonical should keep the check as it is.
+
+---
+
 ## Known divergences that are *not* upstream candidates
 
 These are site-specific and correctly live only here (`docs/FORK_AND_UPSTREAM.md` §13.1).
