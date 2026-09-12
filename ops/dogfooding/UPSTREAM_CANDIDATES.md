@@ -86,6 +86,44 @@ This is *not* an upstream candidate: canonical should keep the check as it is.
 
 ---
 
+## UC-004 — a composed page could not have in-page links (sent, merged)
+
+**Found:** the landing page's own navigation. `/#how`, `/#proof` and `/#roadmap`
+were all dead. Nothing caught it: the anchors are valid HTML and the targets
+simply did not exist.
+
+**Cause:** `TrustedPageModule.astro` emitted no `id` on its section elements.
+Two module types carried one for `aria-labelledby`; the other ten carried none.
+The section id is already author-controlled — `insert_page_section` accepts an
+explicit `sectionId` — so only the renderer had to change.
+
+**Sent upstream:** zen1975/sitewright#20. A release-hygiene check now fails if
+any `<section>` in the module renderer stops emitting `id={section.id}`.
+
+---
+
+## UC-005 — insert_page_section failed anywhere but the end of a page (sent, merged)
+
+**Found:** immediately after UC-004, while re-creating three sections with the
+ids `how`, `proof` and `roadmap`. `roadmap` (position 8, the end) succeeded.
+`proof` (position 5) failed with
+`D1_ERROR: UNIQUE constraint failed: page_sections.page_id, position`,
+leaving the page with the section missing.
+
+**Cause:** renumbering gave the new section and the section it displaces the
+same position, then broke the tie alphabetically by id. When the new id sorted
+after the displaced one the new section was renumbered past it, while the
+INSERT still wrote the requested position — which the unique index rejected.
+
+**Sent upstream:** zen1975/sitewright#21. The ordering is now a pure function
+with a regression test over every insertion point and the id orderings that
+triggered the failure.
+
+**Note:** UC-004 was hiding UC-005, the same way UC-002 hid UC-003. Each fix
+made the next defect reachable. This is the third time on this page.
+
+---
+
 ## Known divergences that are *not* upstream candidates
 
 These are site-specific and correctly live only here (`docs/FORK_AND_UPSTREAM.md` §13.1).
