@@ -47,13 +47,15 @@ https://cos-site.hack-higashimae.workers.dev/news/operated-by-itself/
 None in the dispatch path.
 
 One pre-existing condition was confirmed rather than discovered: `npm run verify`
-reports 67/68 in this fork because `release-hygiene` forbids the marker `zen1975`
-in tracked files, and the official site has to reference the canonical repository
-URL. Recorded as `ops/dogfooding/UPSTREAM_CANDIDATES.md` UC-001.
+fell one check short in this fork, because the hygiene rules would not let a
+distributed file name the canonical repository the official site links to.
+Recorded as `ops/dogfooding/UPSTREAM_CANDIDATES.md` UC-001, and fixed upstream
+in zen1975/sitewright#23 on the same day.
 
 ## Upstream candidates
 
-- **UC-001** — `release-hygiene` still treats the upstream owner as private. The rule
-  predates publication. See `UPSTREAM_CANDIDATES.md`.
+- **UC-001** — a distributed file could not name the project's own canonical
+  repository. The rule predates publication. Sent and merged the same day.
+  See `UPSTREAM_CANDIDATES.md`.
 
 Nothing else. The runtime, schemas and migrations were not touched by this fork.

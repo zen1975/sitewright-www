@@ -11,40 +11,36 @@ Nothing in this file is fixed here. It is fixed upstream and consumed back.
 
 ---
 
-## UC-001 — `release-hygiene` still treats the upstream owner as private
+## UC-001 — the distribution could not name its own repository (sent, merged)
 
-**Observed** 2026-09-12, while setting up this fork.
+**Observed** 2026-09-12, while setting up this fork. `npm run verify` failed the
+check `no tracked file carries private-upstream or operator identifiers`, naming
+`config/site-profile.json` — the file that holds the canonical repository URL the
+official site links to.
 
-`npm run verify` fails one check:
+**Cause:** the check forbade the upstream owner's handle in any tracked file. That
+rule was written while the upstream repository was private, where the handle was
+itself the thing being protected. Once the repository went public the rule was
+conflating two different things: the private upstream's identity, which must not
+leak, and the public project's canonical URL, which every installation is expected
+to reference.
 
-```
-no tracked file carries private-upstream or operator identifiers
-  config/site-profile.json: /\bzen1975\b/
-```
+**Sent upstream:** zen1975/sitewright#23. The handle is now permitted only inside
+the canonical repository URL. A bare mention, a local path, or a link to another
+repository owned by the same account still fails. Verified by four cases, including
+the two that must still fail.
 
-`tests/release-hygiene.test.mjs` forbids the marker `zen1975` in any tracked file.
-That rule was written while the upstream repository was **private**, where leaking the
-owner's handle into a distributed artifact was a real concern.
+**Follow-up:** the first fix permitted the handle only inside the full https URL,
+which still rejected `owner/repo#123` — the form these very records use to cite an
+upstream pull request. Narrowed to the repository slug in zen1975/sitewright#24.
 
-The repository is public as of 2026-09-12. The canonical repository URL is now
-something every installation is expected to reference — the README links to it, and any
-fork that points back at upstream has to name it somewhere.
+**Confirmed here:** `config/site-profile.json` and these records all pass after
+pulling both fixes. This fork is now down to **one** verify failure, the structural
+one below.
 
-**Why this fork trips it**: the official site links to the canonical repository. The URL
-lives in `config/site-profile.json` under `officialSite.repositoryUrl`, which is one of
-the four files a fork is expected to override.
-
-**Generalized statement of the problem**: the hygiene test conflates two different
-things — *the private upstream's identity* (must not leak) and *the public project's
-canonical URL* (must be referenceable).
-
-**Proposed upstream change**: drop `zen1975` from the marker list, or narrow it to
-patterns that indicate a private path rather than a public URL (`/Users/`,
-`hack-sub`, private repository names). The other markers stay.
-
-**Status**: not yet proposed upstream. Until it is, this fork carries one known
-verify failure, and that is recorded rather than silenced. Do not weaken the test
-in this fork.
+**Aftermath:** it also turned out that main had gone red on this rule the moment an
+issue-template config carried the security-advisories URL — the same defect, reached
+from the canonical side instead of the fork side, two hours later.
 
 ---
 
