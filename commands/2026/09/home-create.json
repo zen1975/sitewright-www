@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "commandId": "cos-site-home-create",
+  "command": "create_page",
+  "issuedAt": "2026-09-12T03:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "slug": "home",
+    "title": "ChatGPT Operated Site",
+    "pageType": "landing",
+    "seoTitle": "ChatGPT Operated Site",
+    "seoDescription": "Open infrastructure for websites your clients can update from ChatGPT. The AI interprets intent; the infrastructure enforces the boundary."
+  }
+}
