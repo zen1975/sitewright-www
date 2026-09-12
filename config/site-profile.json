@@ -3,7 +3,7 @@
     "id": "example-site",
     "type": "corporate",
     "timezone": "UTC",
-    "origin": "https://cos-site.hack-higashimae.workers.dev"
+    "origin": "https://chatgpt-operated-site.data-range.com"
   },
   "operations": {
     "assetIntake": {
