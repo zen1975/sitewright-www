@@ -1,30 +1,30 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "replace-me-chatgpt-operated-site",
+  "name": "cos-site",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-08-01",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "replace-me-content",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_name": "cos-site-content",
+      "database_id": "7c82a075-8c27-4056-885d-f4305ac7f457",
       "migrations_dir": "migrations"
     }
   ],
   "r2_buckets": [
     {
       "binding": "ASSETS_BUCKET",
-      "bucket_name": "replace-me-assets"
+      "bucket_name": "cos-site-assets"
     }
   ],
   "kv_namespaces": [
     {
       "binding": "SESSION",
-      "id": "00000000000000000000000000000000"
+      "id": "bf8065e184d94f23857ec2bc624712d3"
     }
   ],
   "vars": {
-    "SITE_ORIGIN": "https://example.com",
+    "SITE_ORIGIN": "https://cos-site.hack-higashimae.workers.dev",
     "SITE_TIMEZONE": "UTC",
     "COMMAND_TRUSTED_ACTOR": "github-actions",
     "CONTROL_READ_SCOPES": "intake:read,command:preflight,content:read,page:read",
