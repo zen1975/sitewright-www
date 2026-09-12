@@ -1,5 +1,71 @@
 {
   "note": "Current page ids and versions. Read pageId and expectedVersion for update_page_section from here; section ids and versions are under `sections`.",
-  "generatedAt": "2026-09-12T01:52:21.816Z",
-  "items": []
+  "generatedAt": "2026-09-12T03:38:57.271Z",
+  "items": [
+    {
+      "id": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
+      "slug": "home",
+      "title": "Sitewright",
+      "pageType": "landing",
+      "status": "published",
+      "version": 1,
+      "url": "/home/",
+      "sections": [
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:1",
+          "sectionType": "hero",
+          "position": 0,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:2",
+          "sectionType": "richText",
+          "position": 1,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:3",
+          "sectionType": "richText",
+          "position": 2,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:4",
+          "sectionType": "cardGrid",
+          "position": 3,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:5",
+          "sectionType": "richText",
+          "position": 4,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:6",
+          "sectionType": "stats",
+          "position": 5,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:7",
+          "sectionType": "richText",
+          "position": 6,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:8",
+          "sectionType": "faq",
+          "position": 7,
+          "version": 1
+        },
+        {
+          "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:9",
+          "sectionType": "cta",
+          "position": 8,
+          "version": 1
+        }
+      ]
+    }
+  ]
 }

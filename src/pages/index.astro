@@ -2,142 +2,44 @@
 export const prerender = false;
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContentCard from '@/components/ContentCard.astro';
+import PageCompositionRenderer from '@/components/PageCompositionRenderer.astro';
 import TimedContentSlot from '@/components/TimedContentSlot.astro';
+import { loadPageCompositionBySlug } from '@/server/page-composition/renderer';
 import { getNewsWithMedia } from '@/lib/content';
+
+/**
+ * The landing page is stored as page sections, not written here.
+ *
+ * Everything a visitor reads on this page can be changed by the operator path
+ * this project documents: update_page_section, reorder_page_sections and the
+ * rest. If the copy on the official site could only be changed by editing this
+ * file, the claim the site makes would not hold for the site itself.
+ *
+ * This route only fetches that page and renders it. `/home/` resolves the same
+ * composition through the catch-all route.
+ */
+const composition = await loadPageCompositionBySlug('home');
 const news = await getNewsWithMedia(3);
-import siteProfile from '../../config/site-profile.json';
-const repo = siteProfile.officialSite.repositoryUrl;
 ---
 <BaseLayout
-  title="Sitewright"
-  description="Open infrastructure for websites your clients can update from a chat assistant. The assistant interprets intent; the infrastructure enforces the boundary.">
+  title={composition?.page.seoTitle || 'Sitewright'}
+  description={composition?.page.seoDescription || ''}>
   <Fragment slot="global-top"><TimedContentSlot placement="global_top" /></Fragment>
-  <main>
 
-    <!-- Hero -->
-    <section class="hero"><div class="shell">
-      <p class="eyebrow">Open source · MIT</p>
-      <h1>Websites your clients update from ChatGPT.</h1>
-      <p class="lp-lede">No admin dashboard. A request becomes a command file in Git, validated and signed before it reaches the site.</p>
-      <p class="lp-boundary">The assistant interprets intent. Infrastructure enforces boundaries. The AI is not the authority.</p>
-      <div class="actions">
-        <a class="button" href={repo}>View on GitHub</a>
-        <a class="text-link" href={`${repo}/blob/main/docs/QUICK_START.md`}>Quick Start →</a>
-      </div>
-    </div></section>
+  {composition
+    ? <PageCompositionRenderer composition={composition} />
+    : <main class="section"><div class="shell">
+        <h1>Sitewright</h1>
+        <p class="lp-lede">The landing page has not been published yet.</p>
+      </div></main>}
 
-    <!-- Problem -->
-    <section class="section section--surface"><div class="shell">
-      <p class="eyebrow">The problem</p>
-      <h2>The admin panel is the maintenance.</h2>
-      <div class="lp-two">
-        <p class="lp-lede">Traditional CMS products are not incapable. The weight is in keeping administrative software alive so that someone can change a sentence on a page.</p>
-        <ul class="lp-list">
-          <li>Plugin updates and version drift</li>
-          <li>Roles and permissions for people who post twice a month</li>
-          <li>Incidents in software nobody wanted to run</li>
-          <li><strong>All of it to publish a paragraph.</strong></li>
-        </ul>
-      </div>
-    </div></section>
-
-    <!-- Architecture -->
-    <section class="section" id="how"><div class="shell">
-      <p class="eyebrow">How it works</p>
-      <h2>One canonical path for client changes.</h2>
-      <pre class="lp-flow"><code>"Publish this as a news post."
-      ↓
-commands/2026/09/autumn-hours.json     immutable command file
-      ↓  git push
-validate → reject duplicates → dry-run → dispatch      HMAC-signed request
-      ↓
-https://example.com/news/autumn-hours/    and state/ records its version</code></pre>
-      <p class="lp-note">The site's operating history is the repository's history. Other API ingress exists for implementers and for emergencies, and each is documented.</p>
-    </div></section>
-
-    <!-- Example -->
-    <section class="section section--surface"><div class="shell">
-      <p class="eyebrow">What a client says</p>
-      <h2>Ordinary requests, nothing else.</h2>
-      <div class="lp-two">
-        <ul class="lp-list">
-          <li>“Change the homepage headline.”</li>
-          <li>“Replace the hero image with this photo.”</li>
-          <li>“Change our Sunday opening hours to 6 PM.”</li>
-        </ul>
-        <ul class="lp-list">
-          <li>“Add this question to the FAQ.”</li>
-          <li>“Publish this as a news post.”</li>
-          <li>“Update the SEO description for the About page.”</li>
-        </ul>
-      </div>
-      <p class="lp-note">The developer decides what may change. ChatGPT provides the interface; the application keeps the rules.</p>
-    </div></section>
-
-    <!-- Boundary -->
-    <section class="section"><div class="shell">
-      <p class="eyebrow">The boundary</p>
-      <h2>Instruct for quality. Enforce for consequences.</h2>
-      <p class="lp-lede">Over four days of real operation, instructed rules were broken four times. Boundaries enforced by the application were never broken.</p>
-      <ul class="lp-list">
-        <li><strong>A command that fails validation is not applied.</strong></li>
-        <li><strong>A repeated command id applies nothing.</strong></li>
-        <li><strong>A version conflict stops the write.</strong></li>
-        <li><strong>An unauthorized scope is refused before any mutation.</strong></li>
-      </ul>
-      <p class="lp-note">These are not prompts. They are the application refusing.</p>
-    </div></section>
-
-    <!-- Proof -->
-    <section class="section section--surface" id="proof"><div class="shell">
-      <p class="eyebrow">Proof</p>
-      <h2>Run before published.</h2>
-      <p class="lp-lede">A real company's website was built on this and operated through ChatGPT by someone who does not read code — on a desktop and on a phone, for text and for images.</p>
-      <div class="lp-stat">
-        <div><b>4</b><span>days of real operation before release</span></div>
-        <div><b>35</b><span>defects and gaps found and recorded</span></div>
-        <div><b>68</b><span>contract checks on a clean clone</span></div>
-        <div><b>30</b><span>minutes from clone to a live post</span></div>
-      </div>
-      <p class="lp-note" style="margin-top:28px">Done means three things: the dispatch succeeded, the rendered site shows the requested state, and what the operator told the requester matches both. A correct system that reports incorrectly has not delivered anything.</p>
-    </div></section>
-
-    <!-- Ownership -->
-    <section class="section"><div class="shell">
-      <p class="eyebrow">Ownership</p>
-      <h2>Your code. Your data. Your infrastructure.</h2>
-      <div class="lp-two">
-        <p class="lp-lede">Nothing runs on our account. You provision your own GitHub repository and your own Cloudflare account, and you keep them.</p>
-        <ul class="lp-list">
-          <li>No hosted service in the path</li>
-          <li>No vendor runtime dependency</li>
-          <li>MIT licensed, commercially usable</li>
-          <li>Fork it and replace the reference design</li>
-        </ul>
-      </div>
-    </div></section>
-
-    <!-- Roadmap -->
-    <section class="section section--surface" id="roadmap"><div class="shell">
-      <p class="eyebrow">Roadmap</p>
-      <h2>Built from evidence, not from a plan.</h2>
-      <p class="lp-lede">New capability follows repeated real use. A request that appears once is recorded, not built.</p>
-      <div class="actions">
-        <a class="button" href={`${repo}/issues`}>Open issues</a>
-        <a class="text-link" href={`${repo}/blob/main/docs/FORK_AND_UPSTREAM.md`}>How changes flow upstream →</a>
-      </div>
-    </div></section>
-
-    <!-- Updates: published through the system itself -->
-    <section class="section"><div class="shell">
-      <p class="eyebrow">Updates</p>
-      <h2>Posted the same way you would post.</h2>
-      <div class="card-grid">
-        {news.length > 0
-          ? news.map((item) => <ContentCard title={item.title} excerpt={item.excerpt} href={`/news/${item.slug}/`} meta={item.published_at?.slice(0,10)} />)
-          : <p class="empty-state">Updates published through the operation layer will appear here.</p>}
-      </div>
-    </div></section>
-
-  </main>
+  <section class="section"><div class="shell">
+    <p class="eyebrow">Updates</p>
+    <h2>Posted the same way you would post.</h2>
+    <div class="card-grid">
+      {news.length > 0
+        ? news.map((item) => <ContentCard title={item.title} excerpt={item.excerpt} href={`/news/${item.slug}/`} meta={item.published_at?.slice(0,10)} />)
+        : <p class="empty-state">Updates published through the operation layer will appear here.</p>}
+    </div>
+  </div></section>
 </BaseLayout>
