@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "commandId": "sitewright-hero-cta-honest",
+  "command": "update_page_section",
+  "issuedAt": "2026-09-12T06:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "pageId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
+    "expectedVersion": 8,
+    "sectionId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f:section:1",
+    "expectedSectionVersion": 2,
+    "sectionType": "hero",
+    "variant": "standard",
+    "props": {
+      "eyebrow": "Open source · MIT",
+      "title": "Websites your clients update by asking.",
+      "lead": "No admin dashboard. A request becomes a command file in Git, validated and signed before it reaches the site. The assistant interprets intent; the infrastructure enforces the boundary, and the AI is not the authority.",
+      "primaryCta": {
+        "label": "How it works",
+        "href": "/#how"
+      }
+    }
+  }
+}

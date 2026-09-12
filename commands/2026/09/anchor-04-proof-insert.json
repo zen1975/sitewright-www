@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "commandId": "sitewright-anchor-proof-insert",
+  "command": "insert_page_section",
+  "issuedAt": "2026-09-12T05:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "pageId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
+    "expectedVersion": 5,
+    "sectionId": "proof",
+    "position": 5,
+    "sectionType": "stats",
+    "variant": "standard",
+    "props": {
+      "heading": "Run before published.",
+      "items": [
+        {
+          "label": "days of real operation before release",
+          "value": "4"
+        },
+        {
+          "label": "defects and gaps found and recorded",
+          "value": "35"
+        },
+        {
+          "label": "contract checks on a clean clone",
+          "value": "68"
+        },
+        {
+          "label": "minutes from clone to a live post",
+          "value": "30"
+        }
+      ]
+    }
+  }
+}

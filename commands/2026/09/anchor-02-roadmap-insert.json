@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "commandId": "sitewright-anchor-roadmap-insert",
+  "command": "insert_page_section",
+  "issuedAt": "2026-09-12T05:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "pageId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
+    "expectedVersion": 3,
+    "sectionId": "roadmap",
+    "position": 8,
+    "sectionType": "cta",
+    "variant": "primary",
+    "props": {
+      "title": "Built from evidence, not from a plan.",
+      "body": "New capability follows repeated real use. A request that appears once is recorded, not built.",
+      "primaryCta": {
+        "label": "Updates",
+        "href": "/news/"
+      }
+    }
+  }
+}

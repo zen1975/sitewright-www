@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "commandId": "sitewright-anchor-how-insert",
+  "command": "insert_page_section",
+  "issuedAt": "2026-09-12T05:00:00Z",
+  "context": {
+    "ruleVersion": "0.1.0",
+    "targetSite": "example-site"
+  },
+  "payload": {
+    "pageId": "14eed45e-12ba-4ce6-9d40-f1c851bc6b9f",
+    "expectedVersion": 7,
+    "sectionId": "how",
+    "position": 2,
+    "sectionType": "richText",
+    "variant": "standard",
+    "props": {
+      "heading": "One canonical path for client changes.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": "A client sentence becomes an immutable command file. It is committed, validated, rejected if its id has been used before, dry-run, then dispatched to the Worker with an HMAC-signed request."
+        },
+        {
+          "type": "paragraph",
+          "content": "The site's operating history is the repository's history. Other API ingress exists for implementers and for emergencies, and each is documented."
+        }
+      ]
+    }
+  }
+}
