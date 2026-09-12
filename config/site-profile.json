@@ -1,6 +1,7 @@
 {
   "site": {
     "id": "example-site",
+    "name": "Example Company",
     "type": "corporate",
     "timezone": "UTC",
     "origin": "https://sitewright.data-range.com"
