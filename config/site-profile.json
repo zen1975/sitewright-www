@@ -3,7 +3,7 @@
     "id": "example-site",
     "type": "corporate",
     "timezone": "UTC",
-    "origin": "https://chatgpt-operated-site.data-range.com"
+    "origin": "https://sitewright.data-range.com"
   },
   "operations": {
     "assetIntake": {
@@ -41,6 +41,6 @@
   "designProfile": "starter-neutral-v1",
   "defaultOgImage": "/assets/default-og.svg",
   "officialSite": {
-    "repositoryUrl": "https://github.com/zen1975/chatgpt-operated-site"
+    "repositoryUrl": "https://github.com/zen1975/sitewright"
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "cos-site",
+  "name": "sitewright-site",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-08-01",
 
-  // 公式サイトのカスタムドメイン。Workers が同一アカウントのゾーンに
-  // DNS レコードと証明書を自動で用意する。
+  // Custom domain for the official site. Workers provisions the DNS record and
+  // the certificate itself, because the zone is already in the same account.
   "routes": [
-    { "pattern": "chatgpt-operated-site.data-range.com", "custom_domain": true }
+    { "pattern": "sitewright.data-range.com", "custom_domain": true }
   ],
 
   "d1_databases": [
@@ -31,7 +31,7 @@
     }
   ],
   "vars": {
-    "SITE_ORIGIN": "https://chatgpt-operated-site.data-range.com",
+    "SITE_ORIGIN": "https://sitewright.data-range.com",
     "SITE_TIMEZONE": "UTC",
     "COMMAND_TRUSTED_ACTOR": "github-actions",
     "CONTROL_READ_SCOPES": "intake:read,command:preflight,content:read,page:read",
